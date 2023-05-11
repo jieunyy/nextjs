@@ -12,4 +12,5 @@
 
 ## Quick Review: 
   How does params.id from getStaticProps({ params }) know the key is named id?
+  > The value from the file name
 
