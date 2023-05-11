@@ -1,4 +1,5 @@
 # Dynamic Routes
+https://nextjs.org/learn/basics/dynamic-routes
 
 ## Page Path Depends on External Data
 각 페이지 경로가 외부 데이터에 의존하는 경우, Next.js를 사용하면 외부 데이터에 의존하는 경로가 있는 페이지를 정적으로 생성할 수 있다. 이는 동적 URL을 활성화한다.
