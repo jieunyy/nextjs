@@ -45,5 +45,17 @@ https://nextjs.org/learn/basics/dynamic-routes
 <br/>
   
 ## Dynamic Routes Details
-1. **Fetch External API or Query Database**: getStaticProps, getStaticPaths가 어느 데이터 소스로부터도 데이터를 패칭해올 수 있는 것처럼, getAllPostIds(getStaticPaths에서 사용됨)는 외부 API를 참조할 수 있다.
-2. 
+1. **Fetch External API or Query Database**: getStaticProps와 마찬가지로 getStaticPaths는 모든 데이터 소스에서 데이터를 가져올 수 있다. 일례로, getAllPostIds(getStaticPaths에서 사용됨)는 외부 API에서 소스를 가져올 수 있다
+2. **Development vs. Production**: 
+  * 개발(npm run devor yarn dev)에서는 모든 요청에 대해 getStaticPaths가 실행된다.
+  * 프로덕션에서는 빌드 시 getStaticPaths를 실행한다.
+3. **Fallback**
+getStaticPaths에서 false라는 폴백을 반환한 경우, 즉 폴백이 거짓인 경우 **getStaticPaths에서 반환되지 않는 경로는 404페이지**가 된다.
+한편, **폴백이 참이면 getStaticProps의 동작이 변경**된다.
+  * getStaticPaths에서 반환된 경로는 빌드 시에 HTML로 렌더링된다.
+  * 빌드 시 생성되지 않은 경로는 404페이지가 되지 않는다. 대신 Next.js는 이러한 경로에 대한 첫 번째 요청 시 페이지의 "fallback" 버전을 제공한다.
+  * 백그라운드에서 Next.js는 요청된 경로를 정적으로 생성한다. 빌드 시 미리 렌더링된 다른 페이지와 마찬가지로 동일한 경로에 대한 후속 요청은 생성된 페이지에 서비스로 작용한다.
+폴백이 차단되었을 경우 새 경로는 getStaticProps로 서버 측에서 렌더링되고 이후 요청을 위해 캐시되므로 경로당 한 번만 발생한다.
+4. **Catch-all Routes**: 동적 경로는 **브래킷 내부에 점 3개(...)를 추가**하여 모든 경로를 포착하도록 확장할 수 있다. pages/pages/[...id].js는 /pages/a와 일치하지만 /pages/a/b, /pages/a/b/c 등도 마찬가지이다.
+5. **Router**: Next.js router에 접근하려면 next/router에서 useRouter 훅을 임포트해 사용한다.
+6. **404 Pages**: pages/404.js을 만들어 404 페이지를 커스텀할 수 있다. 이 페이지는 빌드 타임에 정적으로 실행된다.
