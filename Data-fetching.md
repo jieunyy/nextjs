@@ -23,8 +23,8 @@ Next.js는 기본적으로 모든 페이지를 렌더링한다. Next.js는 클�
 
 ## Two Forms of Pre-rendering
 Next.js에는 두 종류의 pre-rendering 방식이 있다. 차이는 HTML 생성 시기에 있다.
-* **Static Generation(정적 데이터 생성)**는 **build time**에 HTML을 생성(once)하고 각 요청마다 재사용한다.
-* **Server-side Rendering(ssr)**는 **(every)요청 발생 후** HTML을 생성한다.
+* Static Generation(정적 데이터 생성)는 **build time**에 HTML을 생성(once)하고 각 요청마다 재사용한다.
+* Server-side Rendering(ssr)는 **(every)요청 발생 후** HTML을 생성한다.
 
 <br/>
 
