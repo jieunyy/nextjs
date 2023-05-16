@@ -1,5 +1,3 @@
-(about)Next.js 공식문서를 번역하며 공부합니다.
-
 # Data-fetching(데이터 가져오기)
 https://nextjs.org/learn/basics/data-fetching
 
